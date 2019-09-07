@@ -32,7 +32,7 @@ export class HomePage {
   login(){
     this.authService.authenticate(this.credenciais)
     .subscribe(response => {
-       console.log (response.headers.get("Authorization"));
+       this.authService.successFullLogin(response.headers.get("Authorization"));
        this.navCtrl.setRoot('CategoriasPage');
   },
   error => {});
