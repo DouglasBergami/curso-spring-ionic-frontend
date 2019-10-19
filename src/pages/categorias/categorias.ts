@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { CategoriaService } from '../../services/domain/categoria.service';
 import { CategoriaDTO } from '../../models/categoria.dto';
 import { API_CONFIG } from '../../config/api.config';
+import { ProdutoService } from '../../services/domain/produto.service';
 
 @IonicPage()
 @Component({
@@ -28,8 +29,8 @@ export class CategoriasPage {
     );
   }
 
-  showProdutos(){
-    this.navCtrl.push("ProdutosPage");
+  showProdutos(idCategoria: string){
+    this.navCtrl.push("ProdutosPage", {idCategoriAtributo : idCategoria});
   }
 
 }
