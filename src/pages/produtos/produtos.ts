@@ -13,7 +13,10 @@ export class ProdutosPage {
 
   items : ProdutoDTO[];
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public produtoService: ProdutoService) {
+  constructor(
+    public navCtrl: NavController, 
+    public navParams: NavParams, 
+    public produtoService: ProdutoService) {
   }
 
   ionViewDidLoad() {
@@ -23,7 +26,6 @@ export class ProdutosPage {
     .subscribe(response => {
       this.items = response['content'];
       this.loadImageUrls();
-      console.log(this.items)
     },
     error => {});
   }
@@ -40,7 +42,7 @@ export class ProdutosPage {
     }
   }
 
-  showDetails(){
-    this.navCtrl.push("ProdutoDetailPage");
+  showDetails(idProduto : string){
+    this.navCtrl.push("ProdutoDetailPage", {idProdutoAtributo : idProduto});
   }
 }
